@@ -1,0 +1,5 @@
+c:\users\johannes\documents\visual studio 2010\Projects\NTPR_0006_Udp\Udp\obj\Debug\ResolveAssemblyReference.cache
+c:\users\johannes\documents\visual studio 2010\Projects\NTPR_0006_Udp\Udp\bin\Debug\Udp.dll
+c:\users\johannes\documents\visual studio 2010\Projects\NTPR_0006_Udp\Udp\bin\Debug\Udp.pdb
+c:\users\johannes\documents\visual studio 2010\Projects\NTPR_0006_Udp\Udp\obj\Debug\Udp.dll
+c:\users\johannes\documents\visual studio 2010\Projects\NTPR_0006_Udp\Udp\obj\Debug\Udp.pdb

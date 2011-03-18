@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{8EFD6943-C7F2-4F1B-ACEC-523CF5D696AE}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Just</RootNamespace>
+    <AssemblyName>JustLibrary</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="EventArguments\ByteEventArgs.cs" />
+    <Compile Include="EventArguments\ExceptionEventArgs.cs" />
+    <Compile Include="EventArguments\EndpointEventArgs.cs" />
+    <Compile Include="EventArguments\GenricEventArgs.cs" />
+    <Compile Include="EventArguments\StringEventArgs.cs" />
+    <Compile Include="EventArguments\NetworkDataEventArgs.cs" />
+    <Compile Include="Log.cs" />
+    <Compile Include="LogEntry.cs" />
+    <Compile Include="Net\ExtendedUdpServer.cs" />
+    <Compile Include="Net\IServerStatus.cs" />
+    <Compile Include="Net\Protocols\ProtocolElements\SyslogProtocolElement.cs" />
+    <Compile Include="Net\Protocols\SyslogFacility.cs" />
+    <Compile Include="Net\Protocols\ProtocolElements\ExtendedProtocolElement.cs" />
+    <Compile Include="Net\Protocols\Protocol.cs" />
+    <Compile Include="Net\Protocols\ProtocolElements\ProtocolElement.cs" />
+    <Compile Include="Net\Protocols\ProtocolElements\SyslogAppname.cs" />
+    <Compile Include="Net\Protocols\ProtocolElements\SyslogHeader.cs" />
+    <Compile Include="Net\Protocols\ProtocolElements\SyslogHostname.cs" />
+    <Compile Include="Net\Protocols\ProtocolElements\SyslogMsgID.cs" />
+    <Compile Include="Net\Protocols\ProtocolElements\SyslogPriorityVersion.cs" />
+    <Compile Include="Net\Protocols\ProtocolElements\SyslogProcID.cs" />
+    <Compile Include="Net\Protocols\ProtocolElements\SyslogTimestamp.cs" />
+    <Compile Include="Net\Protocols\SyslogProtocol.cs" />
+    <Compile Include="Net\Protocols\SyslogSeverity.cs" />
+    <Compile Include="Net\ServerStatusLogger.cs" />
+    <Compile Include="Net\TcpConnectionHandler.cs" />
+    <Compile Include="Net\TcpServer.cs" />
+    <Compile Include="Net\UdpServer.cs" />
+    <Compile Include="Net\Specialized\PalindromUdpServer.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

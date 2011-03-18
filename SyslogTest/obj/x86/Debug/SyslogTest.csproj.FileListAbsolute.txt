@@ -1,0 +1,5 @@
+G:\Dokumente und Einstellungen\Johannes\Eigene Dateien\Schule\NTPR\NTPR-Just\SyslogTest\bin\Debug\SyslogTest.exe
+G:\Dokumente und Einstellungen\Johannes\Eigene Dateien\Schule\NTPR\NTPR-Just\SyslogTest\bin\Debug\SyslogTest.pdb
+G:\Dokumente und Einstellungen\Johannes\Eigene Dateien\Schule\NTPR\NTPR-Just\SyslogTest\obj\x86\Debug\ResolveAssemblyReference.cache
+G:\Dokumente und Einstellungen\Johannes\Eigene Dateien\Schule\NTPR\NTPR-Just\SyslogTest\obj\x86\Debug\SyslogTest.exe
+G:\Dokumente und Einstellungen\Johannes\Eigene Dateien\Schule\NTPR\NTPR-Just\SyslogTest\obj\x86\Debug\SyslogTest.pdb
