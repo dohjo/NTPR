@@ -1,7 +1,0 @@
-C:\Users\Johannes\Documents\Schule\NTPR\TestSyslogDaemon\bin\Debug\TestSyslogDaemon.exe
-C:\Users\Johannes\Documents\Schule\NTPR\TestSyslogDaemon\bin\Debug\TestSyslogDaemon.pdb
-C:\Users\Johannes\Documents\Schule\NTPR\TestSyslogDaemon\bin\Debug\JustLibrary.dll
-C:\Users\Johannes\Documents\Schule\NTPR\TestSyslogDaemon\bin\Debug\JustLibrary.pdb
-C:\Users\Johannes\Documents\Schule\NTPR\TestSyslogDaemon\obj\x86\Debug\ResolveAssemblyReference.cache
-C:\Users\Johannes\Documents\Schule\NTPR\TestSyslogDaemon\obj\x86\Debug\TestSyslogDaemon.exe
-C:\Users\Johannes\Documents\Schule\NTPR\TestSyslogDaemon\obj\x86\Debug\TestSyslogDaemon.pdb
