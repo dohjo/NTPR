@@ -42,7 +42,7 @@ namespace Just.Net
             server.DataReceived += new EventHandler<EventArguments.NetworkDataEventArgs>(DataReceivedEventHandler);
             server.DataSent += new EventHandler<EventArguments.NetworkDataEventArgs>(DataSentEventHandler);
             server.ExceptionCatched += new EventHandler<EventArguments.ExceptionEventArgs>(ExceptionCatchedEventHandler);
-            server.ReceiverStarted += new EventHandler<GenricEventArgs<EndPoint>>(ReceiverStartedEventHandler);
+            server.ReceiverStarted += new EventHandler<GenericEventArgs<EndPoint>>(ReceiverStartedEventHandler);
             server.ReceiverStopped += new EventHandler<EventArgs>(ReceiverStoppedEventHandler);
         }
 
@@ -66,7 +66,7 @@ namespace Just.Net
             this._Serverlog.AddLogEntry("Receiver gestoppt!");
         }
 
-        protected virtual void ReceiverStartedEventHandler(object sender, GenricEventArgs<EndPoint> e)
+        protected virtual void ReceiverStartedEventHandler(object sender, GenericEventArgs<EndPoint> e)
         {
 
             this._Serverlog.AddLogEntry("Receiver gestartet! (" + ((System.Net.IPEndPoint)e.Value).ToString() + ")");

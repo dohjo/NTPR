@@ -36,7 +36,7 @@ namespace Just.Net
             this.DataReceived += new EventHandler<EventArguments.NetworkDataEventArgs>(DataReceivedEventHandler);
             this.DataSent += new EventHandler<EventArguments.NetworkDataEventArgs>(DataSentEventHandler);
             this.ExceptionCatched += new EventHandler<EventArguments.ExceptionEventArgs>(ExceptionCatchedEventHandler);
-            this.ReceiverStarted += new EventHandler<GenricEventArgs<EndPoint>>(ReceiverStartedEventHandler);
+            this.ReceiverStarted += new EventHandler<GenericEventArgs<EndPoint>>(ReceiverStartedEventHandler);
             this.ReceiverStopped += new EventHandler<EventArgs>(ReceiverStoppedEventHandler);
         }
 

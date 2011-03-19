@@ -16,7 +16,7 @@ namespace Just.Net
         private int _BufferSize;
         public event EventHandler<NetworkDataEventArgs> DataReceived;
         public event EventHandler<NetworkDataEventArgs> DataSent;
-        public event EventHandler<GenricEventArgs<EndPoint>> ReceiverStarted;
+        public event EventHandler<GenericEventArgs<EndPoint>> ReceiverStarted;
         public event EventHandler<EventArgs> ReceiverStopped;
 
         public TcpConnectionHandler(IPEndPoint endpoint, int bufferSize = 512)
@@ -50,7 +50,7 @@ namespace Just.Net
         {
             
             Socket socket = (Socket)obj;
-            if (ReceiverStarted != null) ReceiverStarted(this, new GenricEventArgs<EndPoint>(socket.RemoteEndPoint));
+            if (ReceiverStarted != null) ReceiverStarted(this, new GenericEventArgs<EndPoint>(socket.RemoteEndPoint));
             while (ShouldReceive)
             {
                 try

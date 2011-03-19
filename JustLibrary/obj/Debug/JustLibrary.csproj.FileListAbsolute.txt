@@ -18,3 +18,8 @@ G:\Dokumente und Einstellungen\Johannes\Eigene Dateien\Downloads\Just_1.0\NTPR_0
 G:\Dokumente und Einstellungen\Johannes\Eigene Dateien\Downloads\Just_1.0\NTPR_0006_Udp\Udp\obj\Debug\JustLibrary.pdb
 G:\Dokumente und Einstellungen\Johannes\Eigene Dateien\Downloads\Just_1.0\NTPR_0006_Udp\Udp\bin\Debug\JustLibrary.dll
 G:\Dokumente und Einstellungen\Johannes\Eigene Dateien\Downloads\Just_1.0\NTPR_0006_Udp\Udp\bin\Debug\JustLibrary.pdb
+C:\Users\Johannes\Documents\Schule\NTPR\JustLibrary\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Johannes\Documents\Schule\NTPR\JustLibrary\obj\Debug\JustLibrary.dll
+C:\Users\Johannes\Documents\Schule\NTPR\JustLibrary\obj\Debug\JustLibrary.pdb
+C:\Users\Johannes\Documents\Schule\NTPR\JustLibrary\bin\Debug\JustLibrary.dll
+C:\Users\Johannes\Documents\Schule\NTPR\JustLibrary\bin\Debug\JustLibrary.pdb

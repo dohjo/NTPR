@@ -7,11 +7,7 @@ namespace Just.Net.Protocols.ProtocolElements
 {
     public class SyslogHeader : ExtendedProtocolElement
     {
-        protected override ProtocolElement[] Elements { get; set; }
-
-        protected override byte[] Seperator { get; set; }
-
-        public SyslogHeader(byte[] seperator)
+        public SyslogHeader(byte seperator)
             : base(seperator)
         {
             Elements = new ProtocolElement[6];
@@ -95,7 +91,7 @@ namespace Just.Net.Protocols.ProtocolElements
             }
         }
 
-        public int ProcID
+        public string ProcID
         {
             get
             {
@@ -107,7 +103,7 @@ namespace Just.Net.Protocols.ProtocolElements
             }
         }
 
-        public int MsgID
+        public string MsgID
         {
             get
             {
@@ -117,6 +113,11 @@ namespace Just.Net.Protocols.ProtocolElements
             {
                 ((SyslogMsgID)Elements[5]).Value = value;
             }
+        }
+
+        public override string ToString()
+        {
+            return Encoding.ASCII.GetString(GetBytes());
         }
     }
 }

@@ -8,7 +8,7 @@ namespace Just.Net
 {
     public interface IServerStatus
     {
-        event EventHandler<GenricEventArgs<EndPoint>> ReceiverStarted;
+        event EventHandler<GenericEventArgs<EndPoint>> ReceiverStarted;
         event EventHandler<EventArgs> ReceiverStopped;
         event EventHandler<NetworkDataEventArgs> DataReceived;
         event EventHandler<NetworkDataEventArgs> DataSent;

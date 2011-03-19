@@ -5,11 +5,11 @@ using System.Text;
 
 namespace Just.EventArguments
 {
-    public class GenricEventArgs<T> : EventArgs
+    public class GenericEventArgs<T> : EventArgs
     {
         public T Value { get; private set; }
 
-        public GenricEventArgs(T value)
+        public GenericEventArgs(T value)
         {
             this.Value = value;
         }

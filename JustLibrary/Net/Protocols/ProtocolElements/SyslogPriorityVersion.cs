@@ -62,7 +62,7 @@ namespace Just.Net.Protocols.ProtocolElements
             //RICHTIG nach RFC5424
             string byteString = Encoding.ASCII.GetString(bytes);
             int prival = 0;
-            int start = byteString.IndexOf('<');
+            int start = byteString.IndexOf('<') + 1;
             int length = byteString.IndexOf('>') - start;
             int.TryParse(byteString.Substring(start, length), out prival);
             int facility = prival & 248;

@@ -16,7 +16,7 @@ namespace Just.Net
         private Socket _Socket = new Socket(AddressFamily.InterNetwork, SocketType.Dgram, ProtocolType.Udp);
         private int _BufferSize;
         private bool _ShouldRun;
-        public event EventHandler<GenricEventArgs<EndPoint>> ReceiverStarted;
+        public event EventHandler<GenericEventArgs<EndPoint>> ReceiverStarted;
         public event EventHandler<EventArgs> ReceiverStopped;
         public event EventHandler<NetworkDataEventArgs> DataReceived;
         public event EventHandler<NetworkDataEventArgs> DataSent;
@@ -54,7 +54,7 @@ namespace Just.Net
             {
                 ExceptionCatched(this, new ExceptionEventArgs(ex));
             }
-            if (ReceiverStarted != null) ReceiverStarted(this, new GenricEventArgs<EndPoint>(endPoint));
+            if (ReceiverStarted != null) ReceiverStarted(this, new GenericEventArgs<EndPoint>(endPoint));
             while (this._ShouldRun)
             {
                 try
@@ -128,7 +128,14 @@ namespace Just.Net
             byte[] data = (byte[])objArray[0];
             EndPoint sender = (EndPoint)objArray[1];
             DataReceived(this, new NetworkDataEventArgs(data, sender));
-            ProcessData(data, sender);
+            try
+            {
+                ProcessData(data, sender);
+            }
+            catch (Exception ex)
+            {
+                if (ExceptionCatched != null) ExceptionCatched(this, new ExceptionEventArgs(ex));
+            }
         }
 
         protected virtual void ProcessData(byte[] data, EndPoint sender)

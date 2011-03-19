@@ -18,7 +18,7 @@ namespace Just.Net
         private int _MaxClients;
         private int _BufferSize;
 
-        public event EventHandler<GenricEventArgs<EndPoint>> ReceiverStarted;
+        public event EventHandler<GenericEventArgs<EndPoint>> ReceiverStarted;
         public event EventHandler<EventArgs> ReceiverStopped;
         public event EventHandler<NetworkDataEventArgs> DataReceived;
         public event EventHandler<NetworkDataEventArgs> DataSent;
@@ -51,7 +51,7 @@ namespace Just.Net
                     TcpConnectionHandler tempClient = new TcpConnectionHandler(listener.Accept(),this._BufferSize);
                     tempClient.StartReceiving();
                     tempClient.DataReceived += new EventHandler<NetworkDataEventArgs>(DataReceivedHandler);
-                    tempClient.ReceiverStarted += new EventHandler<GenricEventArgs<EndPoint>>(ClientReceiverStarted);
+                    tempClient.ReceiverStarted += new EventHandler<GenericEventArgs<EndPoint>>(ClientReceiverStarted);
                     tempClient.ReceiverStopped += new EventHandler<EventArgs>(ClientReceiverStopped);
                     tempClient.DataSent += new EventHandler<NetworkDataEventArgs>(ClientDataSent);
                 }
@@ -73,7 +73,7 @@ namespace Just.Net
             if (this.ReceiverStopped != null) this.ReceiverStopped(sender, e);
         }
 
-        void ClientReceiverStarted(object sender, GenricEventArgs<EndPoint> e)
+        void ClientReceiverStarted(object sender, GenericEventArgs<EndPoint> e)
         {
             if (this.ReceiverStarted != null) this.ReceiverStarted(sender, e);
         }
