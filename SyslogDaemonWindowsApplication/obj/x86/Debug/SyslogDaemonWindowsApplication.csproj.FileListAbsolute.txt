@@ -1,0 +1,12 @@
+C:\Users\Johannes\Documents\Schule\NTPR\SyslogDaemonWindowsApplication\bin\Debug\SyslogDaemonWindowsApplication.exe
+C:\Users\Johannes\Documents\Schule\NTPR\SyslogDaemonWindowsApplication\bin\Debug\SyslogDaemonWindowsApplication.pdb
+C:\Users\Johannes\Documents\Schule\NTPR\SyslogDaemonWindowsApplication\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\Johannes\Documents\Schule\NTPR\SyslogDaemonWindowsApplication\obj\x86\Debug\SyslogDaemonWindowsApplication.Main.resources
+C:\Users\Johannes\Documents\Schule\NTPR\SyslogDaemonWindowsApplication\obj\x86\Debug\SyslogDaemonWindowsApplication.Properties.Resources.resources
+C:\Users\Johannes\Documents\Schule\NTPR\SyslogDaemonWindowsApplication\obj\x86\Debug\GenerateResource.read.1.tlog
+C:\Users\Johannes\Documents\Schule\NTPR\SyslogDaemonWindowsApplication\obj\x86\Debug\GenerateResource.write.1.tlog
+C:\Users\Johannes\Documents\Schule\NTPR\SyslogDaemonWindowsApplication\obj\x86\Debug\SyslogDaemonWindowsApplication.exe
+C:\Users\Johannes\Documents\Schule\NTPR\SyslogDaemonWindowsApplication\obj\x86\Debug\SyslogDaemonWindowsApplication.pdb
+C:\Users\Johannes\Documents\Schule\NTPR\SyslogDaemonWindowsApplication\bin\Debug\JustLibrary.dll
+C:\Users\Johannes\Documents\Schule\NTPR\SyslogDaemonWindowsApplication\bin\Debug\JustLibrary.pdb
+C:\Users\Johannes\Documents\Schule\NTPR\SyslogDaemonWindowsApplication\obj\x86\Debug\SyslogDaemonWindowsApplication.Configure.resources

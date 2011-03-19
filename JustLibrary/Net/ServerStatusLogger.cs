@@ -14,7 +14,9 @@ namespace Just.Net
         private bool _DetailedLogging = true;
         private bool _ConsecutiveFileLogging;
         private string _ServerLogFile;
+        private IServerStatus _Server;
 
+        public event EventHandler<EventArguments.StringEventArgs> StatusChanged;
         public event EventHandler<EventArguments.StringEventArgs> LogEntryAdded 
         {
             add
@@ -25,6 +27,24 @@ namespace Just.Net
             {
                 this._Serverlog.LogEntryAdded -= value;
             }
+        }
+
+        public void SetServer(ref IServerStatus server)
+        {
+            if (this._Server != null)
+            {
+                this._Server.DataReceived -= new EventHandler<EventArguments.NetworkDataEventArgs>(DataReceivedEventHandler);
+                this._Server.DataSent -= new EventHandler<EventArguments.NetworkDataEventArgs>(DataSentEventHandler);
+                this._Server.ExceptionCatched -= new EventHandler<EventArguments.ExceptionEventArgs>(ExceptionCatchedEventHandler);
+                this._Server.ReceiverStarted -= new EventHandler<GenericEventArgs<EndPoint>>(ReceiverStartedEventHandler);
+                this._Server.ReceiverStopped -= new EventHandler<EventArgs>(ReceiverStoppedEventHandler);
+            }
+            this._Server = server;
+            this._Server.DataReceived += new EventHandler<EventArguments.NetworkDataEventArgs>(DataReceivedEventHandler);
+            this._Server.DataSent += new EventHandler<EventArguments.NetworkDataEventArgs>(DataSentEventHandler);
+            this._Server.ExceptionCatched += new EventHandler<EventArguments.ExceptionEventArgs>(ExceptionCatchedEventHandler);
+            this._Server.ReceiverStarted += new EventHandler<GenericEventArgs<EndPoint>>(ReceiverStartedEventHandler);
+            this._Server.ReceiverStopped += new EventHandler<EventArgs>(ReceiverStoppedEventHandler);
         }
 
         public ServerStatusLogger(ref IServerStatus server, Encoding encoding, bool detailedLogging = true, bool consecutiveFileLogging = false, string file = "serverlog.txt")
@@ -39,11 +59,20 @@ namespace Just.Net
                 this.LogEntryAdded += new EventHandler<StringEventArgs>(ServerLoggerLogEntryAdded);
             }
 
-            server.DataReceived += new EventHandler<EventArguments.NetworkDataEventArgs>(DataReceivedEventHandler);
-            server.DataSent += new EventHandler<EventArguments.NetworkDataEventArgs>(DataSentEventHandler);
-            server.ExceptionCatched += new EventHandler<EventArguments.ExceptionEventArgs>(ExceptionCatchedEventHandler);
-            server.ReceiverStarted += new EventHandler<GenericEventArgs<EndPoint>>(ReceiverStartedEventHandler);
-            server.ReceiverStopped += new EventHandler<EventArgs>(ReceiverStoppedEventHandler);
+            SetServer(ref server);
+        }
+
+        public ServerStatusLogger(Encoding encoding, bool detailedLogging = true, bool consecutiveFileLogging = false, string file = "serverlog.txt")
+        {
+            this._ConsecutiveFileLogging = consecutiveFileLogging;
+            this._ServerLogFile = file;
+            this._Encoding = encoding;
+            this._DetailedLogging = detailedLogging;
+
+            if (this._ConsecutiveFileLogging)
+            {
+                this.LogEntryAdded += new EventHandler<StringEventArgs>(ServerLoggerLogEntryAdded);
+            }
         }
 
         public void WriteLogToFile(string file)
@@ -63,51 +92,69 @@ namespace Just.Net
 
         protected virtual void ReceiverStoppedEventHandler(object sender, EventArgs e)
         {
-            this._Serverlog.AddLogEntry("Receiver gestoppt!");
+            string message = "Receiver gestoppt!";
+            this._Serverlog.AddLogEntry(message);
+            UpdateStatus(message);
         }
 
         protected virtual void ReceiverStartedEventHandler(object sender, GenericEventArgs<EndPoint> e)
         {
-
-            this._Serverlog.AddLogEntry("Receiver gestartet! (" + ((System.Net.IPEndPoint)e.Value).ToString() + ")");
+            string message = "Receiver gestartet! (" + ((System.Net.IPEndPoint)e.Value).ToString() + ")";
+            this._Serverlog.AddLogEntry(message);
+            UpdateStatus(message);
         }
 
         protected virtual void ExceptionCatchedEventHandler(object sender, EventArguments.ExceptionEventArgs e)
         {
+            string message = "Es ist ein Fehler aufgetreten!";
+            string detail = "Es ist ein Fehler aufgetreten: " + e.Exception.Message;
             if (this._DetailedLogging)
             {
-                this._Serverlog.AddLogEntry("Es ist ein Fehler aufgetreten: " + e.Exception.Message);
+                this._Serverlog.AddLogEntry(detail);
             }
             else
             {
-                this._Serverlog.AddLogEntry("Es ist ein Fehler aufgetreten!");
+                this._Serverlog.AddLogEntry(message);
             }
+            UpdateStatus(message);
         }
 
         protected virtual void DataSentEventHandler(object sender, EventArguments.NetworkDataEventArgs e)
         {
+            string message = "Gesendet (" + e.Data.Length + " Byte) nach " + ((IPEndPoint)e.EndPoint).ToString();
+            string detail = "Gesendet (" + e.Data.Length + " Byte) nach " + ((IPEndPoint)e.EndPoint).ToString() + ": " + this._Encoding.GetString(e.Data);
             if (this._DetailedLogging)
             {
-                this._Serverlog.AddLogEntry("Gesendet (" + e.Data.Length + " Byte) nach " + ((IPEndPoint)e.EndPoint).ToString() + ": " + this._Encoding.GetString(e.Data));
+                this._Serverlog.AddLogEntry(detail);
             }
             else
             {
-                this._Serverlog.AddLogEntry("Gesendet (" + e.Data.Length + " Byte) nach " + ((IPEndPoint)e.EndPoint).ToString());
+                this._Serverlog.AddLogEntry(message);
             }
+            UpdateStatus(message);
         }
 
         protected virtual void DataReceivedEventHandler(object sender, EventArguments.NetworkDataEventArgs e)
         {
+            string message = "Empfangen (" + e.Data.Length + " Byte) von " + ((IPEndPoint)e.EndPoint).ToString();
+            string detail = "Empfangen (" + e.Data.Length + " Byte) von " + ((IPEndPoint)e.EndPoint).ToString() + ": " + this._Encoding.GetString(e.Data);
             if (this._DetailedLogging)
             {
-                this._Serverlog.AddLogEntry("Empfangen (" + e.Data.Length + " Byte) von " + ((IPEndPoint)e.EndPoint).ToString() + ": " + this._Encoding.GetString(e.Data));
+                this._Serverlog.AddLogEntry(detail);
             }
             else
             {
-                this._Serverlog.AddLogEntry("Empfangen (" + e.Data.Length + " Byte) von " + ((IPEndPoint)e.EndPoint).ToString());
+                this._Serverlog.AddLogEntry(message);
             }
+            UpdateStatus(message);
         }
 
+        protected void UpdateStatus(string status)
+        {
+            if (this.StatusChanged != null) this.StatusChanged(this, new StringEventArgs(status));
+            Status = status;
+        }
 
+        public string Status { get; set; }
     }
 }

@@ -3,3 +3,10 @@ G:\Dokumente und Einstellungen\Johannes\Eigene Dateien\Schule\NTPR\NTPR-Just\Sys
 G:\Dokumente und Einstellungen\Johannes\Eigene Dateien\Schule\NTPR\NTPR-Just\SyslogTest\obj\x86\Debug\ResolveAssemblyReference.cache
 G:\Dokumente und Einstellungen\Johannes\Eigene Dateien\Schule\NTPR\NTPR-Just\SyslogTest\obj\x86\Debug\SyslogTest.exe
 G:\Dokumente und Einstellungen\Johannes\Eigene Dateien\Schule\NTPR\NTPR-Just\SyslogTest\obj\x86\Debug\SyslogTest.pdb
+C:\Users\Johannes\Documents\Schule\NTPR\SyslogTest\obj\x86\Debug\SyslogTest.exe
+C:\Users\Johannes\Documents\Schule\NTPR\SyslogTest\obj\x86\Debug\SyslogTest.pdb
+C:\Users\Johannes\Documents\Schule\NTPR\SyslogTest\bin\Debug\SyslogTest.exe
+C:\Users\Johannes\Documents\Schule\NTPR\SyslogTest\bin\Debug\SyslogTest.pdb
+C:\Users\Johannes\Documents\Schule\NTPR\SyslogTest\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\Johannes\Documents\Schule\NTPR\SyslogTest\bin\Debug\JustLibrary.dll
+C:\Users\Johannes\Documents\Schule\NTPR\SyslogTest\bin\Debug\JustLibrary.pdb

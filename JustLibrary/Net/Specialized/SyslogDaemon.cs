@@ -7,7 +7,7 @@ using Just.EventArguments;
 
 namespace Just.Net.Specialized
 {
-    public class SyslogDaemon : UdpServer
+    public class SyslogDaemon : UdpServer,ISyslogDaemon
     {
         public event EventHandler<GenericEventArgs<SyslogProtocol>> SyslogMessageReceived;
 
@@ -22,6 +22,17 @@ namespace Just.Net.Specialized
             SyslogProtocol protocol = new SyslogProtocol();
             protocol.SetBytes(data);
             if (SyslogMessageReceived != null) SyslogMessageReceived(sender, new GenericEventArgs<SyslogProtocol>(protocol));
+        }
+
+
+        public void Start()
+        {
+            StartReceiving();
+        }
+
+        public void Stop()
+        {
+            StopReceiving();
         }
     }
 }

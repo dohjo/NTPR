@@ -69,7 +69,9 @@
     <Compile Include="Net\Protocols\SyslogSeverity.cs" />
     <Compile Include="Net\Protocols\SyslogValues.cs" />
     <Compile Include="Net\ServerStatusLogger.cs" />
+    <Compile Include="Net\Specialized\ISyslogDaemon.cs" />
     <Compile Include="Net\Specialized\SyslogDaemon.cs" />
+    <Compile Include="Net\Specialized\TcpSyslogDaemon.cs" />
     <Compile Include="Net\TcpConnectionHandler.cs" />
     <Compile Include="Net\TcpServer.cs" />
     <Compile Include="Net\UdpServer.cs" />
