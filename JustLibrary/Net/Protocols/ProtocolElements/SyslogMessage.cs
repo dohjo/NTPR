@@ -54,7 +54,7 @@ namespace Just.Net.Protocols.ProtocolElements
                 this.Encoding = Encoding.UTF8;
                 byte[] message = new byte[bytes.Length - checkBom.Length];
                 Array.Copy(bytes, checkBom.Length, message, 0, message.Length);
-                this.Value = Encoding.GetString(message);
+                this.Value = Encoding.UTF8.GetString(message);
             }
             else
             {

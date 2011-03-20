@@ -7,6 +7,9 @@ using Just.EventArguments;
 
 namespace Just.Net
 {
+    /// <summary>
+    /// Logging Queue für ConsecutiveFileLogging
+    /// </summary>
     public class ServerStatusLogger
     {
         private Log _Serverlog = new Log("[{1}]: {0}", "yyyy-MM-dd hh:mm:ss");
